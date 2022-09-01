@@ -1,9 +1,9 @@
+//it is used for testing http request
 const request = require('supertest')
 const jwt = require("jsonwebtoken")
 const app = require("../src/app")
 const User = require("../src/model/user")
 const mongoose = require('mongoose')
-
 
 
 // create test user 
@@ -39,7 +39,7 @@ const user = await User.findById(response.body.user._id)
         //    assertion about the response
              expect(response.body.user.name).toBe('priyanka')
 
-            //  assertion for check reponse object
+            //  assertion for check response object
             expect(response.body).toMatchObject({
                 user:{
                     name:'priyanka',

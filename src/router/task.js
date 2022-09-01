@@ -10,14 +10,12 @@ router.post("/task",auth,async(req,res)=>{
         res.status(201).send(task)
     } catch (error) {
         res.status(400).send(error)
-
     }
 })
 
 router.get("/tasks",auth,async(req,res)=>{
     try{
     await req.user.populate("tasks").exec((err, user) => {
-
         res.send(req.user)
     })
     } catch (error) {
